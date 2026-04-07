@@ -25,8 +25,8 @@ class HBU_Admin {
 
     public function register_menus() {
         add_menu_page(
-            'He Backs Up',
-            'He Backs Up',
+            'HE BACKS UP',
+            'HE BACKS UP',
             'manage_options',
             'hbu-dashboard',
             array( $this, 'page_dashboard' ),

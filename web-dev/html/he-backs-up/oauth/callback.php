@@ -114,12 +114,15 @@ $expires_at    = time() + (int) ( $token_data['expires_in'] ?? 3600 );
 
 // ── WordPress로 토큰 전달 (리다이렉트) ───────────────────────────────────
 
-$redirect = add_query_arg( [
-    'hbu_at'    => rawurlencode( $access_token ),
-    'hbu_rt'    => rawurlencode( $refresh_token ),
+$query = http_build_query( [
+    'hbu_at'    => $access_token,
+    'hbu_rt'    => $refresh_token,
     'hbu_ex'    => $expires_at,
-    'hbu_nonce' => rawurlencode( $wp_nonce ),
-], $return_url );
+    'hbu_nonce' => $wp_nonce,
+] );
+
+$separator = ( strpos( $return_url, '?' ) !== false ) ? '&' : '?';
+$redirect  = $return_url . $separator . $query;
 
 header( 'Location: ' . $redirect );
 exit;
