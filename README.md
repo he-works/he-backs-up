@@ -1,4 +1,4 @@
-# He Backs Up
+# HE BACKS UP
 
 > WordPress 사이트를 통째로 백업하고, 언제든 복구하는 플러그인
 
@@ -11,7 +11,7 @@
 
 ## 소개
 
-**He Backs Up**은 WordPress 사이트의 **파일(wp-content)과 데이터베이스**를 한 번에 백업하고 복구할 수 있는 무료 플러그인입니다.
+**HE BACKS UP**은 WordPress 사이트의 **파일(wp-content)과 데이터베이스**를 한 번에 백업하고 복구할 수 있는 무료 플러그인입니다.
 
 복잡한 설정 없이 WordPress 관리자 화면에서 바로 백업할 수 있으며, **Google Drive**에 자동 저장하거나 **자동 스케줄 백업**으로 사이트를 안전하게 지킬 수 있습니다.
 
@@ -49,7 +49,7 @@
 ### 방법 2 — FTP / 파일 관리자
 
 1. `plugin-dev` 폴더 전체를 서버의 `/wp-content/plugins/he-backs-up/` 경로에 업로드
-2. WordPress 관리자 → **플러그인** → **He Backs Up** 활성화
+2. WordPress 관리자 → **플러그인** → **HE BACKS UP** 활성화
 
 ---
 
@@ -57,19 +57,19 @@
 
 ### 즉시 백업
 
-1. WordPress 관리자 → **He Backs Up** 메뉴 이동
+1. WordPress 관리자 → **HE BACKS UP** 메뉴 이동
 2. **지금 백업 시작** 버튼 클릭
 3. 백업 완료 후 목록에서 파일 확인
 
 ### Google Drive 연동
 
-1. **He Backs Up → Google Drive 설정** 이동
+1. **HE BACKS UP → Google Drive 설정** 이동
 2. **Google 계정 연결** 버튼 클릭 후 권한 허용
 3. 설정 → 저장소 설정에서 **Google Drive 저장** 활성화
 
 ### 자동 스케줄 백업
 
-1. **He Backs Up → 설정** 이동
+1. **HE BACKS UP → 설정** 이동
 2. **자동 백업** 활성화 체크
 3. 백업 주기 선택 (매일 / 매주 / 매월)
 4. **설정 저장**
