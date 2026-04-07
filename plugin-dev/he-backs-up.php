@@ -21,8 +21,8 @@ define( 'HBU_STORAGE_DIR', HBU_PLUGIN_DIR . 'storage' );
 
 // Google OAuth — 배포자 공유 앱 설정
 // CLIENT_ID는 공개해도 괜찮습니다. CLIENT_SECRET은 oauth-relay/callback.php 에만 존재합니다.
-define( 'HBU_GDRIVE_CLIENT_ID',  'YOUR_CLIENT_ID_HERE' );          // ← Google Cloud Console에서 발급받은 값으로 교체
-define( 'HBU_OAUTH_RELAY_URL',   'https://hebacksup.com/oauth/callback.php' ); // ← 릴레이 서버 URL로 교체
+define( 'HBU_GDRIVE_CLIENT_ID',  '616293903678-hc1h8ncqih0bbrt2uq6nm603navai15g.apps.googleusercontent.com' );          // ← Google Cloud Console에서 발급받은 값으로 교체
+define( 'HBU_OAUTH_RELAY_URL',   'https://plugin.he-works.co/he-backs-up/oauth/callback.php' ); // ← 릴레이 서버 URL로 교체
 
 // 핵심 클래스 로드
 require_once HBU_PLUGIN_DIR . 'includes/class-hbu-logger.php';

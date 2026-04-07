@@ -1,0 +1,31 @@
+name: Deploy he-backs-up to server
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web-dev/html/he-backs-up/**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+
+      - name: Deploy via rsync
+        run: |
+          rsync -avz --delete \
+            --exclude='oauth/config.local.php' \
+            -e "ssh -i ~/.ssh/deploy_key -o UserKnownHostsFile=~/.ssh/known_hosts" \
+            web-dev/html/he-backs-up/ \
+            ubuntu@${{ secrets.SERVER_HOST }}:/opt/sites/heworks-plugins/he-backs-up/
+

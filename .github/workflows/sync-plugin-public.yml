@@ -1,0 +1,39 @@
+name: Sync Plugin to Public Repo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'plugin-dev/**'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Push plugin-dev to public repo
+        run: |
+          git clone https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/he-works/wp-he-backs-up.git /tmp/wp-he-backs-up
+
+          # 기존 파일 모두 지우고 plugin-dev/ 내용으로 덮어씀
+          rsync -av --delete --exclude='.git' \
+            plugin-dev/ \
+            /tmp/wp-he-backs-up/
+
+          cd /tmp/wp-he-backs-up
+
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+
+          git add -A
+
+          # 변경사항 없으면 커밋 건너뜀
+          if git diff --staged --quiet; then
+            echo "변경사항 없음 — 동기화 생략"
+          else
+            git commit -m "chore: sync plugin from he-backs-up@${{ github.sha }}"
+            git push
+          fi

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>개인정보처리방침 — He Backs Up</title>
+  <meta name="description" content="He Backs Up 플러그인의 개인정보처리방침입니다.">
+  <link rel="canonical" href="https://plugin.he-works.co/he-backs-up/privacy">
+  <link rel="stylesheet" href="/he-backs-up/assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- ── 헤더 ──────────────────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/he-backs-up" class="logo">
+        <div class="logo-icon">💾</div>
+        He Backs Up
+      </a>
+      <nav class="site-nav">
+        <a href="/he-backs-up">← 홈으로</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── 히어로 ─────────────────────────────────────────────────────── -->
+  <section class="policy-hero">
+    <div class="container">
+      <h1>개인정보처리방침</h1>
+      <p>Privacy Policy · He Backs Up WordPress Plugin</p>
+    </div>
+  </section>
+
+  <!-- ── 본문 ──────────────────────────────────────────────────────── -->
+  <main class="policy-body">
+
+    <div class="policy-box">
+      <p>
+        ✅ <strong>요약:</strong>
+        He Backs Up 플러그인은 사용자의 개인정보를 수집하거나 외부 서버로 전송하지 않습니다.
+        Google Drive 연동 시에도 모든 백업 파일은 <strong>사용자 본인의 Google Drive</strong>에만 저장됩니다.
+      </p>
+    </div>
+
+    <h2>1. 수집하는 정보</h2>
+    <p>He Backs Up 플러그인은 다음과 같은 정보를 수집합니다:</p>
+    <ul>
+      <li><strong>WordPress 사이트 파일 및 데이터베이스:</strong> 백업 기능 실행 시 사용자의 WordPress 설치 디렉토리(wp-content) 및 데이터베이스 내용을 ZIP 파일로
+        압축합니다. 이 파일은 사용자가 지정한 저장소(로컬 서버 또는 사용자 본인의 Google Drive)에만 저장되며, 플러그인 개발자에게 전송되지 않습니다.</li>
+      <li><strong>Google 인증 토큰:</strong> Google Drive 연동을 위해 Google OAuth 2.0 인증 과정에서 발급되는 access_token 및 refresh_token을
+        사용자의 WordPress 데이터베이스에 암호화(AES-256-CBC)하여 저장합니다. 이 토큰은 해당 사이트의 WordPress 설치 환경에만 존재하며, 외부로 전송되지 않습니다.</li>
+    </ul>
+
+    <h2>2. 수집하지 않는 정보</h2>
+    <p>플러그인 개발자(운영자)는 다음 정보를 수집하지 않습니다:</p>
+    <ul>
+      <li>사용자의 이름, 이메일 주소 등 개인 식별 정보</li>
+      <li>사용자 WordPress 사이트의 콘텐츠, 게시글, 댓글</li>
+      <li>사용자의 Google 계정 정보</li>
+      <li>사용자 사이트의 방문자 정보 또는 행동 데이터</li>
+      <li>결제 정보 (이 플러그인은 무료이며 결제 기능이 없습니다)</li>
+    </ul>
+
+    <h2>3. Google Drive 연동 및 데이터 처리</h2>
+    <p>Google Drive 연동 기능 사용 시 다음과 같이 처리됩니다:</p>
+    <ul>
+      <li><strong>사용 권한(스코프):</strong> 이 플러그인은 <code>https://www.googleapis.com/auth/drive.file</code> 스코프만 요청합니다. 이 권한은
+        플러그인이 직접 생성한 파일에만 접근할 수 있으며, 사용자의 기존 Google Drive 파일에는 접근하지 않습니다.</li>
+      <li><strong>저장 위치:</strong> 백업 파일은 사용자의 Google Drive 내 <code>He-Backs-Up</code> 폴더에만 저장됩니다. 플러그인 개발자는 이 파일에 접근할 수
+        없습니다.</li>
+      <li><strong>OAuth 중계 서버:</strong> Google OAuth 인증 과정에서 보안상의 이유로 Google API 클라이언트 시크릿(Client Secret)을 플러그인 코드에
+        포함시키지 않고 별도의 중계 서버를 통해 인증 코드를 처리합니다. 이 중계 서버는 인증 과정의 토큰 교환만 수행하며, 사용자의 개인정보나 백업 파일을 보관하지 않습니다.</li>
+      <li><strong>토큰 보관:</strong> 발급된 access_token 및 refresh_token은 사용자의 WordPress 데이터베이스에 AES-256-CBC 방식으로 암호화되어 저장됩니다.
+        WordPress의 AUTH_KEY와 AUTH_SALT를 암호화 키로 사용하여, 해당 WordPress 설치 환경 외부에서는 복호화할 수 없습니다.</li>
+    </ul>
+
+    <h2>4. 데이터 보관 및 삭제</h2>
+    <ul>
+      <li><strong>로컬 백업 파일:</strong> 사용자가 설정한 보존 개수를 초과하면 오래된 파일부터 자동 삭제됩니다. 사용자가 수동으로 개별 삭제할 수도 있습니다.</li>
+      <li><strong>Google Drive 백업 파일:</strong> 사용자가 플러그인 대시보드에서 직접 삭제하거나, Google Drive에서 직접 삭제할 수 있습니다.</li>
+      <li><strong>Google 인증 토큰:</strong> 플러그인의 "Google Drive 연결 해제" 버튼을 누르면 WordPress 데이터베이스에서 즉시 삭제되며, Google 인증도 함께
+        해제됩니다.</li>
+      <li><strong>플러그인 삭제 시:</strong> 플러그인을 완전히 삭제하면 WordPress 데이터베이스에 저장된 모든 설정값 및 인증 토큰이 자동으로 삭제됩니다. 로컬에 저장된 백업 파일은
+        사용자가 직접 삭제해야 합니다.</li>
+    </ul>
+
+    <h2>5. 제3자 서비스</h2>
+    <p>이 플러그인은 Google LLC가 제공하는 Google Drive API를 사용합니다. Google의 데이터 처리 방식에 대해서는 <a
+        href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a>을 참고하세요.</p>
+    <p>이 플러그인이 사용하는 Google API 서비스에서 수신한 정보의 사용 및 전송은 <a
+        href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google
+        API Services User Data Policy</a>를 준수하며, Limited Use 요건을 포함합니다.</p>
+
+    <h2>6. 쿠키 및 추적</h2>
+    <p>He Backs Up 플러그인은 쿠키를 사용하지 않으며, 사용자 행동을 추적하지 않습니다. 이 웹사이트(플러그인 소개 페이지)에서도 별도의 분석 도구나 추적 스크립트를 사용하지 않습니다.</p>
+
+    <h2>7. 보안</h2>
+    <p>사용자 데이터 보호를 위해 다음과 같은 보안 조치를 적용합니다:</p>
+    <ul>
+      <li>Google 인증 토큰 AES-256-CBC 암호화 저장</li>
+      <li>모든 관리자 요청에 WordPress Nonce(일회용 토큰) 검증</li>
+      <li>CSRF(크로스 사이트 요청 위조) 방지</li>
+      <li>백업 파일 저장 디렉토리 웹 직접 접근 차단 (.htaccess)</li>
+      <li>관리자 권한(manage_options) 보유자만 플러그인 기능 사용 가능</li>
+    </ul>
+
+    <h2>8. 어린이 개인정보</h2>
+    <p>이 플러그인은 어린이를 대상으로 하지 않으며, 13세 미만 어린이의 개인정보를 의도적으로 수집하지 않습니다.</p>
+
+    <h2>9. 개인정보처리방침 변경</h2>
+    <p>이 개인정보처리방침은 필요 시 업데이트될 수 있습니다. 중요한 변경이 있을 경우 이 페이지를 통해 공지합니다. 최신 방침은 항상 이 페이지에서 확인할 수 있습니다.</p>
+
+    <h2>10. 문의</h2>
+    <p>개인정보처리방침에 관한 문의 사항이 있으시면 아래 방법으로 연락해 주세요:</p>
+    <ul>
+      <li>Email : <a href="mailto:he.works.co@gmail.com" target="_blank">he.works.co@gmail.com</a></li>
+      <li>GitHub Issues: <a href="https://github.com/he-works/" target="_blank"
+          rel="noopener">github.com/he-backs-up</a></li>
+    </ul>
+
+    <p class="policy-updated">최종 업데이트: 2026년 4월 7일</p>
+
+  </main>
+
+  <!-- ── 푸터 ───────────────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="logo" style="color:rgba(255,255,255,.6);">
+        He Backs Up
+      </div>
+      <nav class="footer-links">
+        <a href="/he-backs-up/privacy">개인정보처리방침</a>
+        <a href="https://github.com/he-works/he-backs-up">GitHub</a>
+      </nav>
+      <p class="footer-copy">© 2026 <a href="https://he-works.co" target="_blank">HE WORKS.</a> All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

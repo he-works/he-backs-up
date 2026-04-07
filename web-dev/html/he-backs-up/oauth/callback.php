@@ -15,7 +15,7 @@
  *
  *   3. Google Cloud Console → OAuth 동의화면 → 승인된 리디렉션 URI에
  *      이 파일의 URL을 추가합니다.
- *      예: https://hebacksup.com/oauth/callback.php
+ *      예: https://plugin.he-works.co/he-backs-up/oauth/callback.php
  *
  *   4. he-backs-up.php 의 HBU_OAUTH_RELAY_URL 상수를 이 URL로 설정합니다.
  * ─────────────────────────────────────────────────────────────────────────
@@ -28,10 +28,13 @@
  */
 
 // ── 설정값 (배포자가 채워야 할 부분) ──────────────────────────────────────
+$config = require __DIR__ . '/config.local.php';
+$client_id     = $config['google_client_id'];
+$client_secret = $config['google_client_secret'];
 
-define( 'RELAY_CLIENT_ID',     'YOUR_CLIENT_ID_HERE' );
-define( 'RELAY_CLIENT_SECRET', 'YOUR_CLIENT_SECRET_HERE' );
-define( 'RELAY_REDIRECT_URI',  'https://hebacksup.com/oauth/callback.php' ); // 이 파일의 URL
+define( 'RELAY_CLIENT_ID',     $client_id );     // callback.php와 동일한 값
+define( 'RELAY_CLIENT_SECRET', $client_secret ); // callback.php와 동일한 값
+define( 'RELAY_REDIRECT_URI',  'https://plugin.he-works.co/he-backs-up/oauth/callback.php' ); // 이 파일의 URL
 
 // 화이트리스트가 필요하면 도메인 목록 지정. 빈 배열이면 모든 도메인 허용.
 // 예: define( 'RELAY_ALLOWED_DOMAINS', ['mysite.com', 'anothersite.com'] );

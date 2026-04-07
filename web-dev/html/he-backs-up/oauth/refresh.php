@@ -10,8 +10,12 @@
  * Client Secret이 이 파일에만 존재하므로 플러그인 코드에는 노출되지 않습니다.
  */
 
-define( 'RELAY_CLIENT_ID',     'YOUR_CLIENT_ID_HERE' );     // callback.php와 동일한 값
-define( 'RELAY_CLIENT_SECRET', 'YOUR_CLIENT_SECRET_HERE' ); // callback.php와 동일한 값
+$config = require __DIR__ . '/config.local.php';
+$client_id     = $config['google_client_id'];
+$client_secret = $config['google_client_secret'];
+
+define( 'RELAY_CLIENT_ID',     $client_id );     // callback.php와 동일한 값
+define( 'RELAY_CLIENT_SECRET', $client_secret ); // callback.php와 동일한 값
 
 // HTTPS 강제
 if (
